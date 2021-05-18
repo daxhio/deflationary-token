@@ -297,6 +297,8 @@ contract deflateToken is IERC20, Context, Ownable {
   constructor () {
       _totalSupply =  100000 * 10 ** uint256(_decimals);
       _balances[_msgSender()] = _totalSupply;
+      
+      emit Transfer(address(0), _msgSender(), _totalSupply);
   }
 
   function name() public pure returns (string memory) {
